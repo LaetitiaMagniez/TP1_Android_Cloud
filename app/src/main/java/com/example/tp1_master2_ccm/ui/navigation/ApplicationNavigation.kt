@@ -9,15 +9,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tp1_master2_ccm.ui.screen.ListScreen
 import com.example.tp1_master2_ccm.ui.screen.MainScreen
+import com.example.tp1_master2_ccm.ui.screen.QuoteScreen
 
 object NavigationPath {
     const val MAIN_SCREEN = "main_screen"
     const val LIST_SCREEN = "list_screen"
+    const val QUOTE_SCREEN = "quote_screen"
+
 }
 
 
 fun NavGraphBuilder.addMainScreenNavigation(
     onButtonClick: () -> Unit,
+    onButton2Click: () -> Unit
 ) {
     composable(
         route = NavigationPath.MAIN_SCREEN
@@ -25,7 +29,11 @@ fun NavGraphBuilder.addMainScreenNavigation(
         MainScreen(
             onButtonClick = {
                 onButtonClick()
+            },
+            onButton2Click = {
+                onButton2Click()
             }
+
         )
     }
 }
@@ -39,6 +47,15 @@ fun NavGraphBuilder.addListScreenNavigation(navController: NavController) {
     }
 }
 
+fun NavGraphBuilder.addQuoteScreenNavigation() {
+    composable(
+        route = NavigationPath.QUOTE_SCREEN,
+    ) {
+        QuoteScreen()
+    }
+}
+
+
 @Composable
 fun HomeNavHost(
     navController: NavHostController = rememberNavController(),
@@ -50,9 +67,13 @@ fun HomeNavHost(
         addMainScreenNavigation(
             onButtonClick = {
                 navController.navigate(NavigationPath.LIST_SCREEN)
+            },
+                    onButton2Click = {
+                navController.navigate(NavigationPath.QUOTE_SCREEN)
             }
         )
         addListScreenNavigation(navController = navController)
+        addQuoteScreenNavigation()
     }
 }
 

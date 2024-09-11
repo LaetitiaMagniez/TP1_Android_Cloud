@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MainScreen(
     onButtonClick: () -> Unit,
+    onButton2Click: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -38,5 +39,12 @@ fun MainScreen(
                 Text("Voir ma liste")
             }
         )
+        Button(
+            content = {
+                Text("go to quote screen")
+            },
+            onClick = { onButton2Click() }
+        )
+
     }
 }
