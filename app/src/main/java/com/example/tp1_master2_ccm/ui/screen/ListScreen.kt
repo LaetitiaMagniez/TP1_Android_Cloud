@@ -33,7 +33,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.example.tp1_master2_ccm.ui.model.ChuckNorrisObject
 import com.example.tp1_master2_ccm.ui.model.ItemUi
 import com.example.tp1_master2_ccm.ui.viewmodel.MyPokemonViewModel
 
